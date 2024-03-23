@@ -14,7 +14,6 @@ class PortfolioPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         vertical: 40,
       ),
-      color: Color(0xff131313),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

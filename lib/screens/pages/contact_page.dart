@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
   @override
@@ -8,7 +9,6 @@ class ContactPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(top: size.width >= 600 ? 0 : 70),
-      color: Color(0xff131313),
       child: Column(
         children: [
           Expanded(
@@ -25,28 +25,21 @@ class ContactPage extends StatelessWidget {
                           fontSize: 35)),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: size.width >= 600 ? 80 : 10),
-                  child: Text('Encuentrame en',
-                      style: GoogleFonts.quicksand(
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 20)),
-                ),
-                Container(
                   margin: EdgeInsets.only(top: size.width >= 600 ? 30 : 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.whatsapp,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(width: 20),
-                      FaIcon(
-                        FontAwesomeIcons.instagram,
-                        color: Colors.white,
-                        size: 30,
+                      GestureDetector(
+                        onTap: () {
+                          launchUrl(Uri.parse(
+                              "https://api.whatsapp.com/send/?phone=4741030509&text=Hola+Julio+te%20hablo+desde+tu+potafolio+web!&type=phone_number&app_absent=0"));
+                        },
+                        behavior: HitTestBehavior.translucent,
+                        child: FaIcon(
+                          FontAwesomeIcons.whatsapp,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                       ),
                     ],
                   ),
@@ -56,7 +49,7 @@ class ContactPage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.symmetric(vertical: 20),
-            color: Color(0xff1C1C1C),
+            color: Colors.black,
             child: Center(
               child: Text(
                 '© Copyright JVM 2023. All rights reserved',

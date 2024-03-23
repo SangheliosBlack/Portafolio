@@ -1,22 +1,32 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 List<dynamic> lista = [
-  {'titulo': 'Flutter', 'initial': 4},
+  {'titulo': 'Flutter', 'initial': 5},
   {'titulo': 'Dart', 'initial': 4},
   {'titulo': 'NodeJS', 'initial': 3},
   {'titulo': 'MongoDB', 'initial': 4},
-  {'titulo': 'Git', 'initial': 3},
+  {'titulo': 'Git', 'initial': 4},
   {'titulo': 'Socket.IO', 'initial': 3},
   {'titulo': 'HTML', 'initial': 4},
-  {'titulo': 'Sass', 'initial': 5},
   {'titulo': 'JavaScript', 'initial': 4},
-  {'titulo': 'AWS', 'initial': 4},
+  {'titulo': 'SQL', 'initial': 3},
+  {'titulo': 'React', 'initial': 3},
+  {'titulo': 'AWS', 'initial': 2},
+  {'titulo': 'Python', 'initial': 3},
+  {'titulo': 'Firebase', 'initial': 3},
+  {'titulo': 'Express', 'initial': 4},
+  {'titulo': 'Ruby', 'initial': 2},
+  {'titulo': 'Kotlin', 'initial': 3},
+  {'titulo': 'Next.js', 'initial': 3},
+  {'titulo': 'Swift', 'initial': 3},
+  {'titulo': 'Android Studio', 'initial': 3},
+  {'titulo': 'Xcode', 'initial': 3},
+  {'titulo': 'Postman', 'initial': 4},
+  {'titulo': 'JWT', 'initial': 4},
+  {'titulo': 'SSO', 'initial': 3},
 ];
 
 List<Widget> listaW = [];
@@ -24,14 +34,12 @@ List<Widget> listaW = [];
 class AboutMePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final pageController = PageController();
     final size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(top: 55),
       child: Container(
         padding: EdgeInsets.symmetric(
             horizontal: size.width >= 600 ? 100 : 40, vertical: 30),
-        color: Color(0xff131313),
         child: Row(
           children: [
             Expanded(
@@ -51,7 +59,7 @@ class AboutMePage extends StatelessWidget {
                         SizedBox(
                           width: 7,
                         ),
-                        Text('ABOUT ME',
+                        Text('ACERCA DE MI',
                             style: GoogleFonts.raleway(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -61,7 +69,7 @@ class AboutMePage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('Who Am I',
+                    Text('Mis Habilidades',
                         style: GoogleFonts.raleway(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -77,7 +85,7 @@ class AboutMePage extends StatelessWidget {
                               margin: EdgeInsets.only(top: 20),
                               decoration: BoxDecoration(
                                   color: Color(0xff2A2A2A),
-                                  borderRadius: BorderRadius.circular(5)),
+                                  borderRadius: BorderRadius.circular(10)),
                               child: Wrap(
                                 spacing: 20,
                                 runSpacing: 20,
@@ -107,7 +115,7 @@ class AboutMePage extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               shape: new RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              primary: Color(0xffC1874C)),
+              backgroundColor: Color(0xffC1874C)),
           onPressed: () {},
           child: Container(
             margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:fancy_drawer/fancy_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,6 +49,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: Color(0xff131313),
         body: Stack(
           children: [
+            Positioned.fill(
+              child: Container(
+                height: 1000,
+                width: 1000,
+                child: Image(
+                  image: AssetImage("assets/images/io.jpeg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [Colors.black.withOpacity(.75), Colors.black])),
+              ),
+            ),
             PageView(
               onPageChanged: !scrollService.isScroll
                   ? (value) {
@@ -68,10 +83,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: size.width >= 600
+                  ? MainAxisAlignment.center
+                  : MainAxisAlignment.end,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: size.width >= 600 ? 45 : 15),
+                  margin: EdgeInsets.only(
+                      left: size.width >= 600 ? 45 : 15,
+                      bottom: size.width >= 600 ? 0 : 70),
                   child: SmoothPageIndicator(
                     count: 4,
                     axisDirection: Axis.vertical,
@@ -122,8 +141,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget tituloCustom(String titulo, int toPage) {
     final animService = Provider.of<ScrollAnimService>(context);
     return AnimatedContainer(
+        margin: EdgeInsets.only(left: 10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(
+              animService.paginaActual == toPage ? 10 : 5),
           color: Color(
               animService.paginaActual == toPage ? 0xffC1874C : 0xff232324),
         ),
@@ -151,8 +172,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       padding: EdgeInsets.only(right: 40),
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color(0xff0C0C0D),
-        Color(0xff2A2A2C),
+        Colors.black,
+        Colors.black,
       ])),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -174,8 +195,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       height: 60,
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color(0xff0C0C0D),
-        Color(0xff2A2A2C),
+        Colors.black,
+        Colors.black,
       ])),
       child: GestureDetector(
           onTap: animatedIcon,
